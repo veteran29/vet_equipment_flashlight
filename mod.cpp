@@ -1,0 +1,11 @@
+name = "VET_Uniform_Flashlight - 0.0.0";
+dir = "@vet_uniform_flashlight";
+author = "veteran29";
+url = "https://github.com/veteran29/vet_uniform_flashlight";
+action = "https://github.com/veteran29/vet_uniform_flashlight";
+actionName = "Repo";
+logo = "\z\vetufl\addons\main\ui\logo_sm_ca.paa";
+logoOver = "\z\vetufl\addons\main\ui\logo_sm_ca.paa";
+overviewPicture = "\z\vetufl\addons\main\ui\logo_sm_ca.paa";
+tooltip = "VET_Uniform_Flashlght";
+description = "ArmaForces in-house mods developed by community members.";

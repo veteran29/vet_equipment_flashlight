@@ -1,0 +1,38 @@
+name = "VET_Uniform_Flashlight"
+prefix = "vetufl"
+author = "veteran29"
+files = [
+    "LICENSE",
+    "mod.cpp",
+    "README.md",
+]
+
+exclude = ["*.psd", "*.png", "*.tga"]
+
+modname = "vet_uniform_flashlight"
+key_name = "vet_uniform_flashlight_{{version}}"
+authority = "vet_uniform_flashlight_{{version}}"
+
+releasebuild = [
+    "!set_version",
+    "@zip",
+    "!publish"
+]
+
+[header_exts]
+version = "{{git \"id 8\"}}"
+
+[scripts.set_version]
+    steps_windows = [
+        "powershell ./tools/Set-Version.ps1 {{version}} '@vet_uniform_flashlight'"
+    ]
+    steps_linux = [
+        "sed -i 's/0.0.0/{{version}}/' ./releases/{{version}}/@vet_uniform_flashlight/mod.cpp"
+    ]
+    # show_output = true
+
+[scripts.publish]
+    steps_windows = [
+        "powershell ./tools/Publish.ps1 {{version}} 00000000 '@vet_uniform_flashlight'"
+    ]
+    show_output = true
