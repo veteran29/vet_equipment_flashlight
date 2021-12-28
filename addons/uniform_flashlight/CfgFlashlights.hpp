@@ -36,8 +36,8 @@ class CFG_EQUIPMENT {
         attachBoneFollow = 1;
 
         attachOffset[] = {0, 0, 0};
-        attachVectorDir[] = {0, 0, 0};
-        attachVectorUp[] = {0, 0, 0};
+        attachVectorDir[] = {0, 1, 0};
+        attachVectorUp[] = {0, 0, 1};
     };
 
     class H_HelmetSpecB: Default {
