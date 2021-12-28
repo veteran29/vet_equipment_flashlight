@@ -4,7 +4,7 @@ class CFG_FLASHLIGHTS {
         class White {
             color[] = {0.5, 0.5, 0.5};
             colorAmbient[] = {0.1, 0.1, 0.1};
-            intensity = 1000;
+            intensity = 100;
 
             flare = 1;
             flareSize = 0.1;
@@ -13,17 +13,18 @@ class CFG_FLASHLIGHTS {
             dayLight = 1;
             infrared = 0;
 
-            lightConePars[] = {65, 35, 1};
+            lightConePars[] = {125, 30, 7};
             // https://community.bistudio.com/wiki/setLightAttenuation
             lightAttenuation[] = {
-                1.5,    // distance at which light streng starts falling off
-                2,      // constant light falloff factor
-                2,      // linear light falloff factor (factor * distance)
-                0,      // quadratic light falloff factor (factor * distance^2)
+                5,      // distance at which light streng starts falling off
+                0.3,    // constant light falloff factor
+                0.1,    // linear light falloff factor (factor * distance)
+                0.0035, // quadratic light falloff factor (factor * distance^2)
                 10,     // max distance hard limit start (start of fading of intensity to 0)
-                35      // max distance hard limit end (end of fading of intensity to 0)
+                125     // max distance hard limit end (end of fading of intensity to 0)
             };
         };
+        class IR: White {};
     };
 };
 
