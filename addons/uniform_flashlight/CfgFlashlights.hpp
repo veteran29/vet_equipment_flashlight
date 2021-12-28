@@ -43,6 +43,9 @@ class CFG_EQUIPMENT {
     class H_HelmetSpecB: Default {
         attachBone = "head";
 
-        attachOffset[] = {-0.19, -0.1, 0.11};
+        attachOffset[] = {-0.19, -0.1, 0.1};
+        attachVectorDir[] = {0, 1, 0.02};
     };
+    class H_HelmetSpecB_paint1: H_HelmetSpecB {};
+    class H_HelmetSpecB_paint2: H_HelmetSpecB {};
 };
