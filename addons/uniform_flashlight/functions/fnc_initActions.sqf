@@ -30,5 +30,7 @@
         params ["_unit", "", "_item"];
 
         [_unit, _item] call FUNC(enable);
+
+        false // close menu
     }
 ] call CBA_fnc_addItemContextMenuOption
