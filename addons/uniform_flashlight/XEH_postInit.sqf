@@ -1,10 +1,42 @@
 #include "script_component.hpp"
 
-#ifdef DEBUG_MODE_FULL
-[
-    ['draw PREFIX', 'Enable debug draw of PREFIX - COMPONENT'],
-    {}
-] call (uiNamespace getVariable ['afm_debug_console_fnc_addButton', {}]);
-#endif
-
 [] call FUNC(initActions);
+
+// debugging stuff
+#ifdef DEBUG_MODE_FULL
+    GVAR(debugDraw) = -1;
+    DFUNC(debugDraw) = {
+        params ["_unit"];
+
+        private _light = _unit getVariable [QGVAR(light), objNull];
+        if (isNull _light) exitWith {};
+
+        drawIcon3D [
+            "\a3\ui_f\data\Map\Markers\Military\dot_CA.paa",
+            [1,1,1,0.5],
+            _light modelToWorldVisual [0,0,0],
+            0.6,
+            0.6,
+            0,
+            "Light"
+        ];
+        drawLine3D [_light modelToWorldVisual [0,-0.2,0], _light modelToWorldVisual [0,0.2,0], [1,1,1,1]];
+    };
+
+    // add debug draw toggle button
+    [
+        ['draw PREFIX', 'Enable debug draw of PREFIX - COMPONENT'],
+        {
+            if (GVAR(debugDraw) != -1) exitWith {
+                removeMissionEventHandler ["Draw3D", GVAR(debugDraw)];
+                GVAR(debugDraw) = -1;
+            };
+
+            GVAR(debugDraw) = addMissionEventHandler ["Draw3D", {
+                {
+                    _x call FUNC(debugDraw);
+                } forEach allUnits;
+            }];
+        }
+    ] call (uiNamespace getVariable ['afm_debug_console_fnc_addButton', {}]);
+#endif
