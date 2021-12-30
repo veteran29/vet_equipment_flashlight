@@ -16,7 +16,7 @@ class CFG_FLASHLIGHTS {
             lightConePars[] = {125, 30, 7};
             // https://community.bistudio.com/wiki/setLightAttenuation
             lightAttenuation[] = {
-                5,      // distance at which light streng starts falling off
+                5,      // distance at which light strength starts falling off
                 0.3,    // constant light falloff factor
                 0.1,    // linear light falloff factor (factor * distance)
                 0.0035, // quadratic light falloff factor (factor * distance^2)
@@ -24,7 +24,9 @@ class CFG_FLASHLIGHTS {
                 125     // max distance hard limit end (end of fading of intensity to 0)
             };
         };
-        class IR: White {};
+        class IR: White {
+            infrared = 1;
+        };
     };
 };
 
