@@ -30,24 +30,22 @@ class CFG_FLASHLIGHTS {
     };
 };
 
+class GVAR(equipmentDefault) {
+    flashlight = "Default";
+
+    attachBone = "";
+    attachBoneFollow = 1;
+
+    attachOffset[] = {0, 0, 0};
+    attachVectorDir[] = {0, 1, 0};
+    attachVectorUp[] = {0, 0, 1};
+};
+
 class CFG_EQUIPMENT {
-    class Default {
-        flashlight = "Default";
-
-        attachBone = "";
-        attachBoneFollow = 1;
-
-        attachOffset[] = {0, 0, 0};
-        attachVectorDir[] = {0, 1, 0};
-        attachVectorUp[] = {0, 0, 1};
-    };
-
-    class H_HelmetSpecB: Default {
+    class H_HelmetSpecB: GVAR(equipmentDefault) {
         attachBone = "head";
 
         attachOffset[] = {-0.19, -0.1, 0.1};
         attachVectorDir[] = {0, 1, 0.02};
     };
-    class H_HelmetSpecB_paint1: H_HelmetSpecB {};
-    class H_HelmetSpecB_paint2: H_HelmetSpecB {};
 };
