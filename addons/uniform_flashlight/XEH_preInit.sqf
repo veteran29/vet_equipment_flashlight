@@ -5,6 +5,13 @@ PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
+GVAR(flashlightHash) = createHashMap;
+[] call FUNC(readFlashlightConfig);
+
+GVAR(equipmentHash) = createHashMap;
+[configFile] call FUNC(readEquipmentConfig);
+[missionConfigFile] call FUNC(readEquipmentConfig);
+
 [QGVAR(createLight), {
     params ["_unit", "_equipment", "_lightData"];
 
