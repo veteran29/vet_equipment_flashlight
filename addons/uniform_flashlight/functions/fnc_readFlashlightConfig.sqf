@@ -31,7 +31,7 @@ private _fnc_readMode = {
         ["infrared", GET_CFG_OR_DEFAULT("infrared","NUMBER") > 0],
 
         ["lightConePars", GET_CFG_OR_DEFAULT("lightConePars","ARRAY")],
-        ["lightAttenuation", GET_CFG_OR_DEFAULT("color","ARRAY")]
+        ["lightAttenuation", GET_CFG_OR_DEFAULT("lightAttenuation","ARRAY")]
     ]
 };
 

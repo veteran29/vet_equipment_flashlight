@@ -12,7 +12,7 @@
  * Example:
  * [player] call vetufl_uniform_flashlight_fnc_disable
  *
- * Public: No
+ * Public: Yes
  */
 
 params [

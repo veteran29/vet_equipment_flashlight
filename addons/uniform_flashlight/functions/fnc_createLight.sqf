@@ -1,10 +1,11 @@
 #include "script_component.hpp"
 /*
  * Author: veteran29
- * Creates light from given config name.
+ * Creates light from given mode.
  *
  * Arguments:
  * 0: Light class <STRING>
+ * !: Light mode class <STRING>
  *
  * Return Value:
  * Light <OBJECT>
@@ -20,8 +21,8 @@ params [
     ["_lightMode", "", [""]]
 ];
 
-private _lightConfig = configFile >> QUOTE(CFG_FLASHLIGHTS) >> _lightType >> _lightMode;
-if (isNull _lightConfig) exitWith {
+private _lightConfig = GVAR(flashlightHash) get _lightType get _lightMode;
+if (isNil "_lightConfig") exitWith {
     ERROR_1("Could not create the light from given parameters - %1",_this);
     objNull
 };
@@ -29,18 +30,18 @@ if (isNull _lightConfig) exitWith {
 private _light = "#lightreflector" createVehicleLocal [0,0,0];
 
 // refactor into HashMap
-_light setLightColor ([_lightConfig >> "color", "ARRAY", [0.5, 0.5, 0.5]] call CBA_fnc_getConfigEntry);
-_light setLightAmbient ([_lightConfig >> "colorAmbient", "ARRAY", [0.1, 0.1, 0.1]] call CBA_fnc_getConfigEntry);
-_light setLightIntensity ([_lightConfig >> "intensity", "NUMBER", 1000] call CBA_fnc_getConfigEntry);
+_light setLightColor (_lightConfig get "color");
+_light setLightAmbient (_lightConfig get "colorAmbient");
+_light setLightIntensity (_lightConfig get "intensity");
 
-_light setLightUseFlare (getNumber (_lightConfig >> "flare") > 0);
-_light setLightFlareSize ([_lightConfig >> "flareSize", "NUMBER", 0.1] call CBA_fnc_getConfigEntry);
-_light setLightFlareMaxDistance ([_lightConfig >> "flareDistance", "NUMBER", 15] call CBA_fnc_getConfigEntry);
+_light setLightUseFlare (_lightConfig get "flare");
+_light setLightFlareSize (_lightConfig get "flareSize");
+_light setLightFlareMaxDistance (_lightConfig get "flareDistance");
 
-_light setLightDayLight (getNumber (_lightConfig >> "dayLight") > 0);
-_light setLightIR (getNumber (_lightConfig >> "infrared") > 0);
+_light setLightDayLight (_lightConfig get "dayLight");
+_light setLightIR (_lightConfig get "infrared");
 
-_light setLightConePars ([_lightConfig >> "lightConeParse", "ARRAY", [65, 35, 1]] call CBA_fnc_getConfigEntry);
-_light setLightAttenuation ([_lightConfig >> "lightAttenuation", "ARRAY", [1.5, 2, 2, 0, 10, 35]] call CBA_fnc_getConfigEntry);
+_light setLightConePars (_lightConfig get "lightConePars");
+_light setLightAttenuation (_lightConfig get "lightAttenuation");
 
 _light // return

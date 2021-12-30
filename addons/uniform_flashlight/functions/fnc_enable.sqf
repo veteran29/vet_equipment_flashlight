@@ -5,23 +5,26 @@
  *
  * Arguments:
  * 0: Unit <ARRAY>
+ * 1: Item to use for attachment <STRING>
+ * 2: Flashlight mode <ARRAY>
  *
  * Return Value:
  * Light was enabled <BOOL>
  *
  * Example:
- * [player] call vetufl_uniform_flashlight_fnc_enable
+ * [player, "H_HelmetSpecB", ["Default", "IR"]] call vetufl_uniform_flashlight_fnc_enable
  *
- * Public: No
+ * Public: Yes
  */
 
 params [
     ["_unit", objNull, [objNull]],
-    ["_item", "", [""]]
+    ["_item", "", [""]],
+    ["_mode", [], [[]]]
 ];
 
 if (isNull _unit) exitWith {false};
 
-[QGVAR(createLight), [_unit, _item, ["Default", "White"]], CREATE_EVENT_ID(_unit)] call CBA_fnc_globalEventJIP;
+[QGVAR(createLight), [_unit, _item, _mode], CREATE_EVENT_ID(_unit)] call CBA_fnc_globalEventJIP;
 
 true
