@@ -23,19 +23,19 @@ if (isNull _light) exitWith {
     ERROR_1("Light is null, unable to attach - '%1'",_unit);
 };
 
-private _equipmentConfig = configFile >> QUOTE(CFG_EQUIPMENT) >> _equipment;
+private _equipmentConfig = GVAR(equipmentHash) get _equipment;
 TRACE_4("Attaching light",_unit,_light,_equipment,_equipmentConfig);
 
 _light attachTo [
     _unit,
-    [_equipmentConfig >> "attachOffset", "ARRAY", [0,0,0]] call CBA_fnc_getConfigEntry,
-    getText (_equipmentConfig >> "attachBone"),
-    getNumber (_equipmentConfig >> "attachBoneFollow") > 0
+    _equipmentConfig get "attachOffset",
+    _equipmentConfig get "attachBone",
+    _equipmentConfig get "attachBoneFollow"
 ];
 
 _light setVectorDirAndUp [
-    [_equipmentConfig >> "attachVectorDir", "ARRAY", [0,0,0]] call CBA_fnc_getConfigEntry,
-    [_equipmentConfig >> "attachVectorUp", "ARRAY", [0,0,0]] call CBA_fnc_getConfigEntry
+    _equipmentConfig get "attachVectorDir",
+    _equipmentConfig get "attachVectorUp"
 ];
 
 _unit setVariable [QGVAR(light), _light];

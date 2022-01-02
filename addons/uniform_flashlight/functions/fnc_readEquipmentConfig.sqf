@@ -44,6 +44,12 @@ params [
 
     GVAR(equipmentHash) set [configName _x, createHashMapFromArray [
         ["flashlight", _flashlightName],
-        ["flashlightModes", keys _flashlightModes]
+        ["flashlightModes", keys _flashlightModes],
+        // attachment
+        ["attachOffset", [_x >> "attachOffset", "ARRAY", [0,0,0]] call CBA_fnc_getConfigEntry],
+        ["attachBone", getText (_x >> "attachBone")],
+        ["attachBoneFollow", getNumber (_x >> "attachBoneFollow") > 0],
+        ["attachVectorDir", [_x >> "attachVectorDir", "ARRAY", [0,1,0]] call CBA_fnc_getConfigEntry],
+        ["attachVectorUp", [_x >> "attachVectorUp", "ARRAY", [0,0,1]] call CBA_fnc_getConfigEntry]
     ]];
 } forEach ("isClass (configfile >> 'CfgWeapons' >> configName _x)" configClasses (_rootCfg >> 'CFG_EQUIPMENT'));
