@@ -28,6 +28,20 @@ class CFG_FLASHLIGHTS {
             infrared = 1;
         };
     };
+
+    class Fulton {
+        class White {
+            flareSize = 0.6;
+        };
+        class Red: White {
+            color[] = {0.5, 0.1, 0.1};
+            colorAmbient[] = {0.1, 0, 0};
+        };
+        class Blue: White {
+            color[] = {0.1, 0.1, 0.5};
+            colorAmbient[] = {0, 0, 0.1};
+        };
+    };
 };
 
 class GVAR(equipmentDefault) {
