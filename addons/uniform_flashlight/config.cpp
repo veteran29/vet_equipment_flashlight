@@ -15,5 +15,6 @@ class CfgPatches {
     };
 };
 
+#include "ACE_Arsenal.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgFlashlights.hpp"

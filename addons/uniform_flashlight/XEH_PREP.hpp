@@ -2,6 +2,8 @@ PREP(attachLight);
 PREP(createLight);
 PREP(hideLight);
 PREP(enable);
+PREP(getStatIntensity);
+PREP(hasFlashlight);
 PREP(initActions);
 PREP(readEquipmentConfig);
 PREP(readFlashlightConfig);
