@@ -15,7 +15,7 @@
  * Public: No
  */
 
-#define GET_CFG_OR_DEFAULT(key,type) ([_this >> key, type, GVAR(flashlightHash) get "Default" get key] call CBA_fnc_getConfigEntry)
+#define GET_CFG_OR_DEFAULT(key,type) ([_this >> key, type, (GVAR(flashlightHash) get "Default" get "White") get key] call CBA_fnc_getConfigEntry)
 
 private _fnc_readMode = {
     createHashMapFromArray [
@@ -47,7 +47,7 @@ private _fnc_readMode = {
 
 // read missionConfigFile
 {
-    INFO_1("Reading flashlight config from description.ext - %1",_x);
+    INFO_1("Reading flashlight config from description.ext - %1",configName _x);
     // prevent overwriting of default values via description.ext
     if (configName _x == "Default") then {continue};
 
