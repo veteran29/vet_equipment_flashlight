@@ -23,12 +23,12 @@ private _fnc_readMode = {
         ["colorAmbient", GET_CFG_OR_DEFAULT("colorAmbient","ARRAY")],
         ["intensity", GET_CFG_OR_DEFAULT("intensity","NUMBER")],
 
-        ["flare", GET_CFG_OR_DEFAULT("flare","NUMBER") > 0],
+        ["flare", GET_CFG_OR_DEFAULT("flare","NUMBER")],
         ["flareSize", GET_CFG_OR_DEFAULT("flareSize","NUMBER")],
         ["flareDistance", GET_CFG_OR_DEFAULT("flareDistance","NUMBER")],
 
-        ["dayLight", GET_CFG_OR_DEFAULT("dayLight","NUMBER") > 0],
-        ["infrared", GET_CFG_OR_DEFAULT("infrared","NUMBER") > 0],
+        ["dayLight", GET_CFG_OR_DEFAULT("dayLight","NUMBER")],
+        ["infrared", GET_CFG_OR_DEFAULT("infrared","NUMBER")],
 
         ["lightConePars", GET_CFG_OR_DEFAULT("lightConePars","ARRAY")],
         ["lightAttenuation", GET_CFG_OR_DEFAULT("lightAttenuation","ARRAY")]

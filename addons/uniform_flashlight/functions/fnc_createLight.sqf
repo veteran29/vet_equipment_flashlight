@@ -34,12 +34,12 @@ _light setLightColor (_lightConfig get "color");
 _light setLightAmbient (_lightConfig get "colorAmbient");
 _light setLightIntensity (_lightConfig get "intensity");
 
-_light setLightUseFlare (_lightConfig get "flare");
+_light setLightUseFlare (_lightConfig get "flare" > 0);
 _light setLightFlareSize (_lightConfig get "flareSize");
 _light setLightFlareMaxDistance (_lightConfig get "flareDistance");
 
-_light setLightDayLight (_lightConfig get "dayLight");
-_light setLightIR (_lightConfig get "infrared");
+_light setLightDayLight (_lightConfig get "dayLight" > 0);
+_light setLightIR (_lightConfig get "infrared" > 0);
 
 _light setLightConePars (_lightConfig get "lightConePars");
 _light setLightAttenuation (_lightConfig get "lightAttenuation");
