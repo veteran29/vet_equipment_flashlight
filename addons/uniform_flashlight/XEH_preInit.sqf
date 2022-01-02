@@ -21,6 +21,9 @@ GVAR(equipmentHash) = createHashMap;
     private _light = _lightData call FUNC(createLight);
     [_unit, _light, _equipment] call FUNC(attachLight);
 
+    _unit setVariable [QGVAR(lightData), _lightData];
+    [_unit, !(_unit in _unit)] call FUNC(hideLight);
+
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(removeLight), {
@@ -30,6 +33,21 @@ GVAR(equipmentHash) = createHashMap;
 
     detach _light;
     deleteVehicle _light;
+
+    _unit setVariable [QGVAR(light), nil];
+    _unit setVariable [QGVAR(lightData), nil];
 }] call CBA_fnc_addEventHandler;
+
+["CAManBase", "GetInMan", {
+    params ["_unit"];
+
+    [_unit, true] call FUNC(hideLight);
+}] call CBA_fnc_addClassEventHandler;
+
+["CAManBase", "GetOutMan", {
+    params ["_unit"];
+
+    [_unit, false] call FUNC(hideLight);
+}] call CBA_fnc_addClassEventHandler;
 
 ADDON = true;
