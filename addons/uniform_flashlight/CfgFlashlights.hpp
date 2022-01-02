@@ -62,4 +62,14 @@ class CFG_EQUIPMENT {
         attachOffset[] = {-0.19, -0.1, 0.1};
         attachVectorDir[] = {0, 1, 0.02};
     };
+
+    class CUP_V_B_RRV_Scout2: GVAR(default) {
+        flashlight = "Fulton";
+
+        attachBone = "spine3";
+
+        attachOffset[] = {0.17, 0.165, -0.078};
+        attachVectorDir[] = {-0.1, 1, 0.55};
+    };
+    class CUP_V_B_RRV_Scout2_CB: CUP_V_B_RRV_Scout2 {};
 };
