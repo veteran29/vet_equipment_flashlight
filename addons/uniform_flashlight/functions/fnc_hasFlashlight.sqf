@@ -10,7 +10,7 @@
  * Has flashlight <BOOL>
  *
  * Example:
- * [[bob, ted], false] call vetufl_uniform_flashlight_fnc_hasFlashlight
+ * ["H_HelmetSpecB"] call vetufl_uniform_flashlight_fnc_hasFlashlight
  *
  * Public: Yes
  */

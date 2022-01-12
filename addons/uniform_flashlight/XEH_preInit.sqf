@@ -50,4 +50,9 @@ GVAR(equipmentHash) = createHashMap;
     [_unit, false] call FUNC(hideLight);
 }] call CBA_fnc_addClassEventHandler;
 
+// spawn to execute after ACE functions are defined (XEH_postInit does not execute in editor)
+[] spawn {
+    [] call FUNC(arsenalStats);
+};
+
 ADDON = true;

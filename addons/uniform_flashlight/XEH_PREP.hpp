@@ -1,3 +1,4 @@
+PREP(arsenalStats);
 PREP(attachLight);
 PREP(createLight);
 PREP(hideLight);

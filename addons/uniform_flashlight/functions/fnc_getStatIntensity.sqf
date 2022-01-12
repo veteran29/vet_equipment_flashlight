@@ -18,9 +18,9 @@
 
 TRACE_1("asdasd",_this);
 
-params ["_item"];
+params ["_itemCfg"];
 
-private _cfg = _item;
+private _cfg = _itemCfg;
 while {!isNull _cfg} do {
     if (!isNil {GVAR(equipmentHash) get configName _cfg}) exitWith {};
     _cfg = inheritsFrom _cfg;
