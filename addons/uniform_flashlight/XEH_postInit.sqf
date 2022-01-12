@@ -20,7 +20,7 @@
             0,
             "Light"
         ];
-        drawLine3D [_light modelToWorldVisual [0,-0.2,0], _light modelToWorldVisual [0,0.2,0], [1,1,1,1]];
+        drawLine3D [_light modelToWorldVisual [0,-0.2,0], _light modelToWorldVisual [0,0.45,0], [1,0,0,1]];
     };
 
     // add debug draw toggle button
