@@ -6,5 +6,6 @@ PREP(enable);
 PREP(getStatIntensity);
 PREP(hasFlashlight);
 PREP(initActions);
+PREP(initDisplayInventory);
 PREP(readEquipmentConfig);
 PREP(readFlashlightConfig);
