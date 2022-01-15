@@ -60,13 +60,16 @@ private _headgearSlot = _display displayCtrl IDC_FG_HEADGEAR;
     private _backpackSlot = _display displayCtrl IDC_FG_BACKPACK_TEXT;
     private _headgearSlot = _display displayCtrl IDC_FG_HEADGEAR;
 
+    private _unit = call CBA_fnc_currentUnit;
+    // get slot of the enabled light
+    private _lightSlot = (_unit getVariable [QGVAR(lightEquipment), []]) param [1, ""];
+
     {
         private _ctrlIcon = _x getVariable QGVAR(icon);
-        privatE _unit = call CBA_fnc_currentUnit;
-        private _lightEquipment = _unit getVariable [QGVAR(lightEquipment), ""];
-        private _classname = "";
+        private _ctrlSlot = _x getVariable "cba_ui_slotType";
 
-        switch (_x getVariable "cba_ui_slotType") do {
+        private _classname = "";
+        switch (_ctrlSlot) do {
             case "UNIFORM": {
                 _classname = uniform _unit;
             };
@@ -81,9 +84,8 @@ private _headgearSlot = _display displayCtrl IDC_FG_HEADGEAR;
             };
         };
 
-        private _isEnabled = _classname isKindOf [_lightEquipment, configFile >> "CfgWeapons"];
         _ctrlIcon ctrlShow (_classname call FUNC(hasFlashlight));
-        _ctrlIcon ctrlSetTextColor ([[1,0,0, 0.7], [1,1,1,1]] select _isEnabled);
+        _ctrlIcon ctrlSetTextColor ([[1,0,0, 0.7], [1,1,1,1]] select (_ctrlSlot == _lightSlot));
 
     } forEach [
         _uniformSlot,

@@ -19,12 +19,12 @@
 
 params [
     ["_unit", objNull, [objNull]],
-    ["_item", "", [""]],
+    ["_equipment", [], [[]]],
     ["_mode", [], [[]]]
 ];
 
 if (isNull _unit) exitWith {false};
 
-[QGVAR(createLight), [_unit, _item, _mode], CREATE_EVENT_ID(_unit)] call CBA_fnc_globalEventJIP;
+[QGVAR(createLight), [_unit, _equipment, _mode], CREATE_EVENT_ID(_unit)] call CBA_fnc_globalEventJIP;
 
 true

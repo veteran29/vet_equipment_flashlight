@@ -5,6 +5,8 @@ PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
+GVAR(equipmentConfigCache) = createHashMap;
+
 GVAR(flashlightHash) = createHashMap;
 [] call FUNC(readFlashlightConfig);
 
@@ -13,15 +15,17 @@ GVAR(equipmentHash) = createHashMap;
 [missionConfigFile] call FUNC(readEquipmentConfig);
 
 [QGVAR(createLight), {
-    params ["_unit", "_equipment", "_lightData"];
+    params ["_unit", "_equipment", "_lightMode"];
+    private _attachmentCfg = (_equipment select 0) call FUNC(getEquipmentConfig);
 
     // there can be only one light attached to the unit
     [QGVAR(removeLight), _unit] call CBA_fnc_localEvent;
 
-    private _light = _lightData call FUNC(createLight);
-    [_unit, _light, _equipment] call FUNC(attachLight);
+    private _light = _lightMode call FUNC(createLight);
+    [_unit, _light, configName _attachmentCfg] call FUNC(attachLight);
 
-    _unit setVariable [QGVAR(lightData), _lightData];
+    _unit setVariable [QGVAR(lightData), _lightMode];
+    _unit setVariable [QGVAR(lightEquipment), _equipment];
     [_unit, !(_unit in _unit)] call FUNC(hideLight);
 
 }] call CBA_fnc_addEventHandler;

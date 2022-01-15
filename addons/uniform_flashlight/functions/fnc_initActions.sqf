@@ -37,10 +37,10 @@
                 _item == configName (_itemAction call FUNC(getEquipmentConfig)) // return
             }],
             {
-                params ["_unit", "", "", "", "_params"];
-                _params params ["_item", "_mode"];
+                params ["_unit", "", "_item", "_slot", "_params"];
+                _params params ["", "_mode"];
 
-                [_unit, _item, _mode] call FUNC(enable);
+                [_unit, [_item, _slot], _mode] call FUNC(enable);
 
                 false // close menu
             },
