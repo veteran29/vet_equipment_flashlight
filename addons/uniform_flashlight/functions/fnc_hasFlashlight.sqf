@@ -17,10 +17,4 @@
 
 params ["_item"];
 
-private _cfg = _item call CBA_fnc_getItemConfig;
-while {!isNull _cfg} do {
-    if (!isNil {GVAR(equipmentHash) get configName _cfg}) exitWith {};
-    _cfg = inheritsFrom _cfg;
-};
-
-!isNull _cfg
+!isNull (_item call FUNC(getEquipmentConfig))

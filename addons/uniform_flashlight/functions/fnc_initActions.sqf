@@ -32,16 +32,9 @@
             nil,
             [{true}, {
                 params ["", "", "_itemAction", "", "_params"];
-                _params params ["_item", "_mode"];
+                _params params ["_item"];
 
-                private _show = false;
-                private _cfg = _itemAction call CBA_fnc_getItemConfig;
-                while {!isNull _cfg} do {
-                    if (!isNil {GVAR(equipmentHash) get configName _cfg}) exitWith {};
-                    _cfg = inheritsFrom _cfg;
-                };
-
-                _item == configName _cfg // return
+                _item == configName (_itemAction call FUNC(getEquipmentConfig)) // return
             }],
             {
                 params ["_unit", "", "", "", "_params"];

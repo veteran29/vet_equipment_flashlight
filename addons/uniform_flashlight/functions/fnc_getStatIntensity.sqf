@@ -1,31 +1,20 @@
 #include "script_component.hpp"
 /*
- * Author: <author>
- * Function description
+ * Author: veteran29
+ * Get maximum intensity stat of the item flashlight.
  *
  * Arguments:
- * 0: Objects <ARRAY>
- * 1: All <BOOL>
+ * 0: Item config <CONFIG>
  *
  * Return Value:
- * None
- *
- * Example:
- * [[bob, ted], false] call vetufl_uniform_flashlight_fnc_example
+ * Intensity <NUMBER>
  *
  * Public: No
  */
 
-TRACE_1("asdasd",_this);
-
 params ["_itemCfg"];
 
-private _cfg = _itemCfg;
-while {!isNull _cfg} do {
-    if (!isNil {GVAR(equipmentHash) get configName _cfg}) exitWith {};
-    _cfg = inheritsFrom _cfg;
-};
-
+private _cfg = configName _itemCfg call FUNC(getEquipmentConfig);
 if (isNull _cfg) exitWith {-1};
 
 private _itemHash = GVAR(equipmentHash) get (configName _cfg);
