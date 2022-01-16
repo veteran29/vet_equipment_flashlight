@@ -20,3 +20,6 @@ params [
 ];
 
 [CREATE_EVENT_ID(_unit)] call CBA_fnc_removeGlobalEventJIP;
+[QGVAR(removeLight), _unit] call CBA_fnc_globalEvent;
+
+[QGVAR(refreshUi)] call CBA_fnc_localEvent;

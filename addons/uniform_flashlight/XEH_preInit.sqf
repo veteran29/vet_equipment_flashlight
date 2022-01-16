@@ -40,6 +40,13 @@ GVAR(equipmentHash) = createHashMap;
 
     _unit setVariable [QGVAR(light), nil];
     _unit setVariable [QGVAR(lightData), nil];
+    _unit setVariable [QGVAR(lightEquipment), nil];
+}] call CBA_fnc_addEventHandler;
+
+[QGVAR(refreshUi), {
+    [{
+        [] call FUNC(updateDisplayInventory);
+    }] call CBA_fnc_execNextFrame;
 }] call CBA_fnc_addEventHandler;
 
 ["CAManBase", "GetInMan", {
@@ -53,6 +60,27 @@ GVAR(equipmentHash) = createHashMap;
 
     [_unit, false] call FUNC(hideLight);
 }] call CBA_fnc_addClassEventHandler;
+
+["loadout", {
+    params ["_unit"];
+
+    [QGVAR(refreshUi)] call CBA_fnc_localEvent;
+
+    (_unit getVariable [QGVAR(lightEquipment), []]) params ["_equipment", ["_slot", ""]];
+    if (_slot == "") exitWith {};
+    private _currentEquipment = switch (_slot) do {
+        case "UNIFORM": {uniform _unit};
+        case "VEST": {vest _unit};
+        case "BACKPACK": {backpack _unit};
+        case "HEADGEAR": {headgear _unit};
+    };
+
+    // unit changed to different equipment, disable the light
+    if (_currentEquipment != _equipment) then {
+        TRACE_2("Equipment changed disabling the light",_currentEquipment,_equipment);
+        _unit call FUNC(disable);
+    };
+}] call CBA_fnc_addPlayerEventHandler;
 
 // spawn to execute after ACE functions are defined (XEH_postInit does not execute in editor)
 [] spawn {
