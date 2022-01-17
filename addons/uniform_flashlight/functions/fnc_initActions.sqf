@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 /*
  * Author: veteran29
- * Function description
+ * Init actions for managing the flashlights.
  *
  * Arguments:
  * None
@@ -19,7 +19,6 @@
 {
     private _item = _x;
     private _flashlight = _y get "flashlight";
-    private _disableInheritance = _y getOrDefault ["disableInheritance", false];
 
     // create action for every flashlight mode
     {
@@ -50,3 +49,21 @@
     } forEach (_y get "flashlightModes");
 
 } forEach GVAR(equipmentHash);
+
+// disable light action
+[
+    "#Equipment",
+    "CLOTHES",
+    "Disable flashlight /loc",
+    nil,
+    nil,
+    [{true}, {
+        params ["_unit", "", "_item"];
+
+        (_unit getVariable [QGVAR(lightEquipment), []] param [0, ""]) == _item
+    }],
+    {
+        params ["_unit"];
+        _unit call FUNC(disable);
+    }
+] call CBA_fnc_addItemContextMenuOption;

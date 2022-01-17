@@ -19,8 +19,6 @@
 
 params ["_display"];
 
-systemChat "Inventory!";
-
 private _uniformSlot = _display displayCtrl IDC_FG_UNIFORM_TEXT;
 private _vestSlot = _display displayCtrl IDC_FG_VEST_TEXT;
 private _backpackSlot = _display displayCtrl IDC_FG_BACKPACK_TEXT;
