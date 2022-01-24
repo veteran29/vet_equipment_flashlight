@@ -25,9 +25,9 @@ params [
         INFO_1("Reading equipment config from description.ext - %1",_x);
     };
 
-    private _flashlightName = getText (_x >> "flashLight");
-    if (_flashlightName == "") then {
-        TRACE_1("Disabling flashlight",configName _x);
+    private _flashlightName = getText (_x >> "flashlight");
+    if (_flashlightName == "" && {isText (_x >> "flashlight")}) then {
+        INFO_1("Disabling flashlight - %1",configName _x);
         GVAR(equipmentHash) set [configName _x, createHashMapFromArray [
             ["flashlight", "<disabled>"],
             ["flashlightModes", []]
