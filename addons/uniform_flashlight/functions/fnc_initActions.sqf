@@ -35,17 +35,22 @@
             ENABLE_MODE_TEXT,
             nil,
             nil,
-            [{true}, {
+            [{
+                params ["_unit", "", "", "", "_params"];
+                _params params ["_item", "_lightMode"];
+
+                _lightMode isNotEqualTo GET_LIGHT_MODE(_unit) // return
+            }, {
                 params ["", "", "_itemAction", "", "_params"];
-                _params params ["_item"];
+                _params params ["_item", "_lightMode"];
 
                 _item == configName (_itemAction call FUNC(getEquipmentConfig)) // return
             }],
             {
                 params ["_unit", "", "_item", "_slot", "_params"];
-                _params params ["", "_mode"];
+                _params params ["", "_lightMode"];
 
-                [_unit, [_item, _slot], _mode] call FUNC(enable);
+                [_unit, [_item, _slot], _lightMode] call FUNC(enable);
 
                 false // close menu
             },
@@ -66,7 +71,7 @@
     [{true}, {
         params ["_unit", "", "_item"];
 
-        (_unit getVariable [QGVAR(lightEquipment), []] param [0, ""]) == _item
+        (GET_LIGHT_EQUIPMENT(_unit) param [0, ""]) == _item
     }],
     {
         params ["_unit"];
