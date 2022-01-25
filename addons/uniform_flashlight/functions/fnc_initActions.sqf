@@ -15,6 +15,12 @@
  * Public: No
  */
 
+#ifdef DEBUG_MODE_FULL
+    #define ENABLE_MODE_TEXT (format ["%1 > %2", _item, _flashlightMode])
+#else
+    #define ENABLE_MODE_TEXT (format [LLSTRING(Enable_Mode), _flashlightMode])
+#endif
+
 // create equipment actions
 {
     private _item = _x;
@@ -26,7 +32,7 @@
         [
             _item,
             "CLOTHES",
-            format ["%2 > %1", _flashlightMode, _item],
+            ENABLE_MODE_TEXT,
             nil,
             nil,
             [{true}, {
@@ -54,7 +60,7 @@
 [
     "#Equipment",
     "CLOTHES",
-    "Disable flashlight /loc",
+    LLSTRING(Disable),
     nil,
     nil,
     [{true}, {
