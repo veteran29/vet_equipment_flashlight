@@ -8,4 +8,4 @@ logo = "\z\vetufl\addons\main\ui\logo_sm_ca.paa";
 logoOver = "\z\vetufl\addons\main\ui\logo_sm_ca.paa";
 overviewPicture = "\z\vetufl\addons\main\ui\logo_sm_ca.paa";
 tooltip = "VET_Uniform_Flashlght";
-description = "ArmaForces in-house mods developed by community members.";
+description = "Flashlights attached to equipment items.";
