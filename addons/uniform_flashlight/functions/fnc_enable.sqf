@@ -12,7 +12,7 @@
  * Light was enabled <BOOL>
  *
  * Example:
- * [player, "H_HelmetSpecB", ["Default", "IR"]] call vetufl_uniform_flashlight_fnc_enable
+ * [player, "H_HelmetSpecB", ["Default", "IR"]] call vetufl_equipment_flashlight_fnc_enable
  *
  * Public: Yes
  */

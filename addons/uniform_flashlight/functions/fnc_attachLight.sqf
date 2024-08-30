@@ -12,7 +12,7 @@
  * None
  *
  * Example:
- * [_unit, _light, "H_HelmetSpecB"] call vetufl_uniform_flashlight_fnc_attachLight
+ * [_unit, _light, "H_HelmetSpecB"] call vetufl_equipment_flashlight_fnc_attachLight
  *
  * Public: No
  */

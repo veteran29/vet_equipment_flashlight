@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="VETUFL">
-    <Package name="Uniform_Flashlight">
-        <Key ID="STR_VETUFL_Uniform_Flashlight_Enable_Mode">
+    <Package name="Equipment_Flashlight">
+        <Key ID="STR_VETUFL_Equipment_Flashlight_Enable_Mode">
             <English>Flashlight > %1</English>
             <Polish>Latarka > %1</Polish>
         </Key>
-        <Key ID="STR_VETUFL_Uniform_Flashlight_Disable">
+        <Key ID="STR_VETUFL_Equipment_Flashlight_Disable">
             <English>Disable flashlight</English>
             <Polish>Wyłącz latarkę</Polish>
         </Key>

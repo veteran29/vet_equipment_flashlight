@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [missionConfigFile] call vetufl_uniform_flashlight_fnc_readEquipmentConfig
+ * [missionConfigFile] call vetufl_equipment_flashlight_fnc_readEquipmentConfig
  *
  * Public: No
  */

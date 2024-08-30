@@ -2,7 +2,7 @@
 <Project name="VETUFL">
     <Package name="Main">
         <Key ID="STR_VETUFL_Main_Category">
-            <English>VET_Uniform_Flashlight</English>
+            <English>VET_Equipment_Flashlight</English>
         </Key>
     </Package>
 </Project>

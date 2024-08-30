@@ -11,7 +11,7 @@
  * Light <OBJECT>
  *
  * Example:
- * ["Default", "White"] call vetufl_uniform_flashlight_fnc_createLight;
+ * ["Default", "White"] call vetufl_equipment_flashlight_fnc_createLight;
  *
  * Public: Yes
  */

@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [player] call vetufl_uniform_flashlight_fnc_disable
+ * [player] call vetufl_equipment_flashlight_fnc_disable
  *
  * Public: Yes
  */

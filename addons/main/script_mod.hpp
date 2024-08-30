@@ -10,7 +10,7 @@
 #define REQUIRED_VERSION 2.06
 
 #ifdef COMPONENT_BEAUTIFIED
-    #define COMPONENT_NAME QUOTE(VET_Uniform_Flashlight - COMPONENT_BEAUTIFIED)
+    #define COMPONENT_NAME QUOTE(VET_Equipment_Flashlight - COMPONENT_BEAUTIFIED)
 #else
-    #define COMPONENT_NAME QUOTE(VET_Uniform_Flashlight - COMPONENT)
+    #define COMPONENT_NAME QUOTE(VET_Equipment_Flashlight - COMPONENT)
 #endif

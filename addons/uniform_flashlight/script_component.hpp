@@ -1,4 +1,4 @@
-#define COMPONENT uniform_flashlight
+#define COMPONENT equipment_flashlight
 #include "\z\vetufl\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL

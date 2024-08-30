@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [] call vetufl_uniform_flashlight_fnc_initActions
+ * [] call vetufl_equipment_flashlight_fnc_initActions
  *
  * Public: No
  */

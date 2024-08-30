@@ -1,8 +1,8 @@
-name = "VET_Uniform_Flashlight - 0.0.0";
-dir = "@vet_uniform_flashlight";
+name = "VET_Equipment_Flashlight - 0.0.0";
+dir = "@vet_equipment_flashlight";
 author = "veteran29";
-url = "https://github.com/veteran29/vet_uniform_flashlight";
-action = "https://github.com/veteran29/vet_uniform_flashlight";
+url = "https://github.com/veteran29/vet_equipment_flashlight";
+action = "https://github.com/veteran29/vet_equipment_flashlight";
 actionName = "Repo";
 logo = "\z\vetufl\addons\main\ui\logo_sm_ca.paa";
 logoOver = "\z\vetufl\addons\main\ui\logo_sm_ca.paa";

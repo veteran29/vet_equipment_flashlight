@@ -10,7 +10,7 @@
  * Equipment config <CONFIG>
  *
  * Example:
- * ["H_HelmetSpecB_paint2"] call vetufl_uniform_flashlight_fnc_getEquipmentConfig
+ * ["H_HelmetSpecB_paint2"] call vetufl_equipment_flashlight_fnc_getEquipmentConfig
  *
  * Public: Yes
  */
