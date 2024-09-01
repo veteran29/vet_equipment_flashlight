@@ -5,6 +5,7 @@
 // debugging stuff
 #ifdef DEBUG_MODE_FULL
     GVAR(debugDraw) = -1;
+    // [] call vetufl_equipment_flashlight_fnc_debugDraw
     DFUNC(debugDraw) = {
         params ["_unit"];
 

@@ -12,6 +12,8 @@
  * Public: No
  */
 
+if (!IS_MOD_LOADED(ace_arsenal)) exitWith {};
+
 [
     [[3,4,5,6], []],
     QGVAR(intensity),
