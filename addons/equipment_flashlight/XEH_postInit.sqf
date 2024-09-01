@@ -24,20 +24,22 @@
         drawLine3D [_light modelToWorldVisual [0,-0.2,0], _light modelToWorldVisual [0,0.45,0], [1,0,0,1]];
     };
 
+    DFUNC(debugDrawToggle) = {
+        if (GVAR(debugDraw) != -1) exitWith {
+            removeMissionEventHandler ["Draw3D", GVAR(debugDraw)];
+            GVAR(debugDraw) = -1;
+        };
+
+        GVAR(debugDraw) = addMissionEventHandler ["Draw3D", {
+            {
+                _x call FUNC(debugDraw);
+            } forEach allUnits;
+        }];
+    };
+
     // add debug draw toggle button
     [
         ['draw PREFIX', 'Enable debug draw of PREFIX - COMPONENT'],
-        {
-            if (GVAR(debugDraw) != -1) exitWith {
-                removeMissionEventHandler ["Draw3D", GVAR(debugDraw)];
-                GVAR(debugDraw) = -1;
-            };
-
-            GVAR(debugDraw) = addMissionEventHandler ["Draw3D", {
-                {
-                    _x call FUNC(debugDraw);
-                } forEach allUnits;
-            }];
-        }
+        {call FUNC(debugDrawToggle)}
     ] call (uiNamespace getVariable ['afm_debug_console_fnc_addButton', {}]);
 #endif
