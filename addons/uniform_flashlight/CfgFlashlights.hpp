@@ -44,17 +44,28 @@ class CFG_FLASHLIGHTS {
     };
 };
 
+class GVAR(Default) {
+    flashlight = "Default";
+
+    attachBone = "";
+    attachBoneFollow = 0;
+
+    attachOffset[] = {0, 0, 1.1};
+    attachVectorDir[] = {0, 1, 0};
+    attachVectorUp[] = {0, 0, 1};
+};
+
 class CFG_EQUIPMENT {
-    class H_HelmetSpecB {
-        flashlight = "Default";
+    class H_HelmetSpecB: GVAR(Default) {
 
         attachBone = "head";
+        attachBoneFollow = 1;
 
         attachOffset[] = {-0.19, -0.1, 0.1};
         attachVectorDir[] = {0, 1, 0.02};
     };
 
-    class CUP_V_B_RRV_Scout2 {
+    class CUP_V_B_RRV_Scout2: GVAR(Default) {
         flashlight = "Fulton";
 
         attachBone = "spine3";
